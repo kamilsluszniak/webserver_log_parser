@@ -1,6 +1,7 @@
 example_id                                               | status | run_time        |
 -------------------------------------------------------- | ------ | --------------- |
-./spec/webserver_log_parser/file_reader_spec.rb[1:1:1:1] | passed | 0.00094 seconds |
-./spec/webserver_log_parser/file_reader_spec.rb[1:2:1:1] | passed | 0.00012 seconds |
-./spec/webserver_log_parser/file_reader_spec.rb[1:2:2:1] | passed | 0.00029 seconds |
-./spec/webserver_log_parser_spec.rb[1:1]                 | passed | 0.0004 seconds  |
+./spec/webserver_log_parser/file_reader_spec.rb[1:1:1:1] | passed | 0.00108 seconds |
+./spec/webserver_log_parser/file_reader_spec.rb[1:2:1:1] | passed | 0.00019 seconds |
+./spec/webserver_log_parser/file_reader_spec.rb[1:2:2:1] | passed | 0.00011 seconds |
+./spec/webserver_log_parser/file_reader_spec.rb[1:2:3:1] | passed | 0.00032 seconds |
+./spec/webserver_log_parser_spec.rb[1:1]                 | passed | 0.00042 seconds |

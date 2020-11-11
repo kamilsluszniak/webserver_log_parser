@@ -7,6 +7,7 @@ module WebserverLogParser
     end
 
     def call
+      check_file
       read_file
     end
 
@@ -14,8 +15,14 @@ module WebserverLogParser
 
     def read_file
       File.open(file_path, "r")
-    rescue Errno::ENOENT
-      raise FileNotFoundException
+    end
+
+    def check_file
+      if !File.file?(file_path)
+        raise FileNotFoundException
+      elsif File.zero?(file_path)
+        raise FileEmptyException
+      end
     end
   end
 end
