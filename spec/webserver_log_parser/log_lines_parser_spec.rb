@@ -19,10 +19,12 @@ RSpec.describe WebserverLogParser::LogLinesParser do
       it "returns parsed lines array" do
         expect( subject.call ).to eq(
           [
-            "/help_page/1", "126.318.035.038"
-          ],
-          [
-            "/contact", "184.123.665.067"
+            [
+              "/help_page/1", "126.318.035.038"
+            ],
+            [
+              "/contact", "184.123.665.067"
+            ]
           ]
         )
       end
