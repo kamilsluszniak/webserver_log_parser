@@ -1,17 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ruby_basic_app/version'
+require 'webserver_log_parser/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ruby_basic_app"
-  spec.version       = RubyBasicApp::VERSION
-  spec.authors       = ["Fellipe Souto"]
-  spec.email         = ["fllsouto@gmail.com"]
+  spec.name          = "webserver_log_parser"
+  spec.version       = WebserverLogParser::VERSION
+  spec.authors       = ["Kamil Słuszniak"]
+  spec.email         = ["kamil.sluszniak@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Ruby webserver log parser}
+  spec.description   = %q{Parser for webserver logs, with capability to list pages by views and unique views}
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -26,7 +25,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.10"
+  spec.add_development_dependency "bundler", "~> 2.1.4"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rubocop"
 end

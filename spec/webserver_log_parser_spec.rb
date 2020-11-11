@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe RubyBasicApp do
+describe WebserverLogParser do
   it 'has a version number' do
-    expect(RubyBasicApp::VERSION).not_to be nil
+    expect(WebserverLogParser::VERSION).not_to be nil
   end
 
   it 'does something useful' do

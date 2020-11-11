@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in ruby_basic_app.gemspec
+# Specify your gem's dependencies in webserver_log_parser.gemspec
 gemspec
