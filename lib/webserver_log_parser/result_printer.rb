@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module WebserverLogParser
+  # Class for printing results
   class ResultPrinter
     attr_reader :stats, :unique_views
 

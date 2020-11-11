@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require 'pry'
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'webserver_log_parser'
 
 RSpec.configure do |config|
@@ -16,7 +18,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.example_status_persistence_file_path = '.rspec_status'
   config.disable_monkey_patching!
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end

@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module WebserverLogParser
+  # Main class for parsing log files and presenting stats
   class WebagesVisitsStats
     attr_reader :file_path, :unique_views
 
@@ -16,7 +19,7 @@ module WebserverLogParser
     private
 
     def sort_stats_descending(stats)
-      stats.sort_by {|hash| hash[:count] }.reverse!
+      stats.sort_by { |hash| hash[:count] }.reverse!
     end
   end
 end

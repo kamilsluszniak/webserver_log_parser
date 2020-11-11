@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module WebserverLogParser
+  # File reader and validator class
   class FileReader
-    VALID_FORMATS = %w(.txt .log)
+    VALID_FORMATS = %w[.txt .log].freeze
     attr_reader :file_path
 
     def initialize(file_path:)
@@ -15,22 +18,18 @@ module WebserverLogParser
     private
 
     def read_file
-      File.open(file_path, "r")
+      File.open(file_path, 'r')
     end
 
     def check_file
-      if !File.file?(file_path)
-        raise FileNotFoundException
-      elsif File.zero?(file_path)
-        raise FileEmptyException
-      end
+      raise FileNotFoundException unless File.file?(file_path)
+      raise FileEmptyException if File.zero?(file_path)
+
       validate_format
     end
 
     def validate_format
-      unless VALID_FORMATS.include? File.extname(file_path)
-        raise UnacceptedFileFormatException
-      end
+      raise UnacceptedFileFormatException unless VALID_FORMATS.include? File.extname(file_path)
     end
   end
 end

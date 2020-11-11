@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 
 module WebserverLogParser
+  # Log file parser
   class LogLinesParser
     attr_reader :file, :parsed_lines
 

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 
 module WebserverLogParser
+  # Class that connects functionalities and decides which analyzer to use
   class Processor
     attr_reader :file_path, :unique_views
 

@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module WebserverLogParser
+  # Child class of lines analyzer that presents unique hit results
   class UniqueParsedLinesAnalyzer < ParsedLinesAnalyzer
     private
 
