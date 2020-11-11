@@ -1,5 +1,6 @@
 module WebserverLogParser
   class FileReader
+    VALID_FORMATS = %w(.txt .log)
     attr_reader :file_path
 
     def initialize(file_path:)
@@ -22,6 +23,13 @@ module WebserverLogParser
         raise FileNotFoundException
       elsif File.zero?(file_path)
         raise FileEmptyException
+      end
+      validate_format
+    end
+
+    def validate_format
+      unless VALID_FORMATS.include? File.extname(file_path)
+        raise UnacceptedFileFormatException
       end
     end
   end

@@ -21,16 +21,40 @@ RSpec.describe WebserverLogParser::FileReader do
       end
     end
 
-    context "when the file is empty" do
-      let(:file_path) { "spec/fixtures/files/empty.file" }
+    context "when file is in unaccepted format" do
+      let(:file_path) { "spec/fixtures/files/existing.file" }
+
+      it "returns a file" do
+        expect{ subject.call }.to raise_error(WebserverLogParser::UnacceptedFileFormatException)
+      end
+    end
+
+    context "when the .txt file is empty" do
+      let(:file_path) { "spec/fixtures/files/empty.txt" }
 
       it "raises a FileEmptyException exception" do
         expect{ subject.call }.to raise_error(WebserverLogParser::FileEmptyException)
       end
     end
 
-    context "when file exist" do
-      let(:file_path) { "spec/fixtures/files/existing.file" }
+    context "when the .log file is empty" do
+      let(:file_path) { "spec/fixtures/files/empty.log" }
+
+      it "raises a FileEmptyException exception" do
+        expect{ subject.call }.to raise_error(WebserverLogParser::FileEmptyException)
+      end
+    end
+
+    context "when file exist and is .txt" do
+      let(:file_path) { "spec/fixtures/files/logs.txt" }
+
+      it "returns a file" do
+        expect( subject.call ).to be_instance_of(File)
+      end
+    end
+
+    context "when file exist and is .log" do
+      let(:file_path) { "spec/fixtures/files/logs.log" }
 
       it "returns a file" do
         expect( subject.call ).to be_instance_of(File)
