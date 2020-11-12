@@ -13,8 +13,7 @@ RSpec.describe WebserverLogParser::LogLinesParser do
     context 'when file exists and all lines contain path and addresses' do
       subject { described_class.new(file: file) }
 
-      let(:file_path) { 'spec/fixtures/files/logs.log' }
-      let(:file) { File.open(file_path) }
+      let(:file) { File.open('spec/fixtures/files/logs.log') }
 
       it 'returns parsed lines array' do
         expect(subject.call).to eq(
