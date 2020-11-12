@@ -58,6 +58,7 @@ RSpec.describe WebserverLogParser::WebagesVisitsStats do
         it 'calls ParsedLinesAnalyzer' do
           expect(WebserverLogParser::ResultPrinter).to receive(:new)
             .with(stats: sorted_processed_lines, unique_views: false)
+            .and_call_original
           subject.call
         end
       end
@@ -68,6 +69,7 @@ RSpec.describe WebserverLogParser::WebagesVisitsStats do
         it 'calls ParsedLinesAnalyzer' do
           expect(WebserverLogParser::ResultPrinter).to receive(:new)
             .with(stats: sorted_processed_lines, unique_views: true)
+            .and_call_original
           subject.call
         end
       end

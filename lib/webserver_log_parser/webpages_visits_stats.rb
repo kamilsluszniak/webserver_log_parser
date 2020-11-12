@@ -13,7 +13,7 @@ module WebserverLogParser
     def call
       stats = Processor.new(file_path: file_path, unique_views: unique_views).call
       sorted = sort_stats_descending(stats)
-      ResultPrinter.new(stats: sorted, unique_views: unique_views)
+      ResultPrinter.new(stats: sorted, unique_views: unique_views).call
     end
 
     private
