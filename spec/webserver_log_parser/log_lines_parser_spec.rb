@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 RSpec.describe WebserverLogParser::LogLinesParser do
-  describe 'call when arguments missing' do
+  describe 'call' do
     context 'when file argument missing' do
+      subject { described_class.new }
+
       it 'raises an ArgumentError exception' do
-        expect { described_class.new }.to raise_error(ArgumentError)
+        expect { subject.new }.to raise_error(ArgumentError)
       end
     end
-  end
 
-  describe 'call' do
-    subject { described_class.new(file: file) }
+    context 'when file exists and all lines contain path and addresses' do
+      subject { described_class.new(file: file) }
 
-    context 'when file exist and all lines contain path and addresses' do
       let(:file_path) { 'spec/fixtures/files/logs.log' }
       let(:file) { File.open(file_path) }
 
