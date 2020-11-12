@@ -22,7 +22,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+run from command line:
+
+`thor webages_visits_stats:parse_logs 'webserver.log'`
+
+to count visits from unique addresses:
+
+`thor webages_visits_stats:parse_logs 'webserver.log' -u`
+
+or:
+
+`thor webages_visits_stats:parse_logs 'webserver.log' --unique`
+
+more info:
+
+`thor help webages_visits_stats:parse_logs`
 
 ## Development
 
