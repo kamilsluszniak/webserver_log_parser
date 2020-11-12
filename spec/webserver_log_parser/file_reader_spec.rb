@@ -2,7 +2,7 @@
 
 RSpec.describe WebserverLogParser::FileReader do
   describe 'call' do
-    context 'when file_path argument missing' do
+    context 'when file_path argument is missing' do
       subject { described_class.new }
 
       it 'raises an ArgumentError exception' do
@@ -10,7 +10,7 @@ RSpec.describe WebserverLogParser::FileReader do
       end
     end
 
-    context 'when file_path argument present' do
+    context 'when file_path argument is present' do
       subject { described_class.new(file_path: file_path) }
 
       context "when the file doesn't exist" do

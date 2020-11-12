@@ -2,14 +2,14 @@
 
 RSpec.describe WebserverLogParser::ResultPrinter do
   describe 'call' do
-    context 'when file argument missing' do
+    context 'when file argument is missing' do
       subject { described_class.new(unique_views: false) }
 
       it 'raises an ArgumentError exception' do
         expect { subject }.to raise_error(ArgumentError)
       end
     end
-  
+
     context 'when stats argument present' do
       let(:stats) { [{ path: '/help_page/1', count: 1 }, { path: '/contact', count: 2 }] }
 
@@ -23,6 +23,7 @@ RSpec.describe WebserverLogParser::ResultPrinter do
             expect($stdout).to receive(:puts).with('Page views:')
             expect($stdout).to receive(:puts).with('/help_page/1: 1')
             expect($stdout).to receive(:puts).with('/contact: 2')
+
             subject.call
           end
         end
@@ -38,6 +39,7 @@ RSpec.describe WebserverLogParser::ResultPrinter do
             expect($stdout).to receive(:puts).with('Page unique views:')
             expect($stdout).to receive(:puts).with('/help_page/1: 1')
             expect($stdout).to receive(:puts).with('/contact: 2')
+
             subject.call
           end
         end

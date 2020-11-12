@@ -2,7 +2,7 @@
 
 RSpec.describe WebserverLogParser::ParsedLinesAnalyzer do
   describe 'call' do
-    context 'when file argument missing' do
+    context 'when file argument is missing' do
       subject { described_class.new }
 
       it 'raises an ArgumentError exception' do

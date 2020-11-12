@@ -1,16 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe WebserverLogParser::WebagesVisitsStats do
-  describe 'call when arguments missing' do
-    context 'when file argument missing' do
-      it 'raises an ArgumentError exception' do
-        expect { described_class.new }.to raise_error(ArgumentError)
-      end
-    end
-  end
-
   describe 'call' do
-    context 'when file argument missing' do
+    context 'when file argument is missing' do
       subject { described_class.new(unique_views: false) }
 
       it 'raises an ArgumentError exception' do
@@ -55,10 +47,11 @@ RSpec.describe WebserverLogParser::WebagesVisitsStats do
       context 'when unique_views is false' do
         let(:unique_views) { false }
 
-        it 'calls ParsedLinesAnalyzer' do
+        it 'ResultPrinter with unique_views: false' do
           expect(WebserverLogParser::ResultPrinter).to receive(:new)
             .with(stats: sorted_processed_lines, unique_views: false)
             .and_call_original
+
           subject.call
         end
       end
@@ -66,10 +59,11 @@ RSpec.describe WebserverLogParser::WebagesVisitsStats do
       context 'when unique_views is true' do
         let(:unique_views) { true }
 
-        it 'calls ParsedLinesAnalyzer' do
+        it 'ResultPrinter with unique_views: true' do
           expect(WebserverLogParser::ResultPrinter).to receive(:new)
             .with(stats: sorted_processed_lines, unique_views: true)
             .and_call_original
+
           subject.call
         end
       end
